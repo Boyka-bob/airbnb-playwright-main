@@ -29,6 +29,16 @@ node -v
 npm -v
 ```
 
+## Credentials
+
+The login credentials are not stored in the repo. Copy the template and fill in your own Airbnb test account:
+
+```bash
+cp .env.example .env
+```
+
+`.env` is gitignored and is loaded by `playwright.config.js` via `dotenv`. The test fails fast with a clear message if `AIRBNB_EMAIL` or `AIRBNB_PASSWORD` is missing.
+
 ## Playwright Installation
 
 Install Dependencies
