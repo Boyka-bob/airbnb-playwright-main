@@ -2,8 +2,17 @@
 
 Airbnb, Inc., based in San Francisco, California, operates an online marketplace focused on short-term homestays and experiences. The company acts as a broker and charges a commission from each booking.
 
-## Pre-Requisite
+## Project Structure
 
+```
+POM/                 Page objects (landingPage.js, login.js, booking.js)
+tests/TC1.spec.js    End-to-end test spec
+Fixtures/            Test input data
+data/state.json      Saved browser storage state
+playwright.config.js Playwright configuration
+```
+
+## Pre-Requisite
 
 Note: to download the latest version of npm, on the command line, run the following command:
 
@@ -52,7 +61,7 @@ npx playwright test
 - Run a single test file
 
 ```bash
-npx playwright test tests/TC1.spec.ts
+npx playwright test tests/TC1.spec.js
 ```
 
 - Run a set of test files
