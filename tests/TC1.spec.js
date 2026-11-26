@@ -2,7 +2,21 @@ const { test, expect, firefox, chromium } = require('@playwright/test');
 const { login } = require('../POM/login');
 const { landingPage } = require('../POM/landingPage');
 const { booking } = require('../POM/booking');
-const credientals = JSON.parse(JSON.stringify(require("../Fixtures/cred.json")));
+const testData = require("../Fixtures/cred.json");
+
+// Login credentials come from the gitignored .env file (see .env.example), never from the repo.
+function requireEnv(name) {
+    const value = process.env[name];
+    if (!value) {
+        throw new Error(`Missing env var ${name}. Copy .env.example to .env and fill in real values.`);
+    }
+    return value;
+}
+const credientals = {
+    Email: requireEnv('AIRBNB_EMAIL'),
+    Password: requireEnv('AIRBNB_PASSWORD'),
+    wishlistName: testData.wishlistName,
+};
 
 
 test.describe('Test Suits', async () => {
